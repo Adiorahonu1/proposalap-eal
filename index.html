@@ -88,9 +88,86 @@
       width: 7px; height: 7px; border-radius: 50%;
       background: rgba(22,72,200,0.18);
       transition: background 0.3s, transform 0.3s; cursor: pointer;
+      position: relative;
     }
+    .pd::after {
+      content: attr(data-label);
+      position: absolute; right: 18px; top: 50%; transform: translateY(-50%);
+      background: var(--blue-deep); color: #fff;
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.04em;
+      white-space: nowrap; padding: 4px 10px; border-radius: 6px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.18s;
+    }
+    .pd:hover::after { opacity: 1; }
     .pd.active { background: var(--blue); transform: scale(1.5); }
     @media (max-width: 900px) { .progress-dots { display: none; } }
+
+    /* FAQ */
+    .faq-list { display: flex; flex-direction: column; gap: 2px; max-width: 780px; }
+    .faq-item {
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .faq-item.open { border-color: rgba(22,72,200,0.3); }
+    .faq-q {
+      width: 100%; background: var(--white); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; padding: 22px 28px;
+      font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700;
+      color: var(--blue-deep); text-align: left; transition: background 0.2s;
+    }
+    .section-off .faq-q { background: var(--off); }
+    .faq-item.open .faq-q { background: var(--blue-soft); }
+    .faq-icon {
+      flex-shrink: 0; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--blue-soft); border: 1px solid rgba(22,72,200,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.9rem; color: var(--blue); transition: transform 0.25s, background 0.2s;
+      font-style: normal;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); background: var(--blue); color: #fff; }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(.16,1,.3,1), padding 0.25s;
+      padding: 0 28px; font-size: 0.92rem; color: var(--sub); line-height: 1.78;
+    }
+    .faq-item.open .faq-a { max-height: 220px; padding: 0 28px 22px; }
+
+    /* BRIDGE CALLOUT */
+    .bridge-callout {
+      display: flex; align-items: center; gap: 24px;
+      background: linear-gradient(135deg, rgba(22,72,200,0.06) 0%, rgba(22,72,200,0.02) 100%);
+      border: 1px solid rgba(22,72,200,0.18); border-radius: 14px;
+      padding: 24px 32px; margin-top: 32px; max-width: 720px;
+    }
+    .bridge-arrow { font-size: 1.6rem; flex-shrink: 0; }
+    .bridge-text { font-size: 0.96rem; color: var(--blue-deep); line-height: 1.65; }
+    .bridge-text strong { color: var(--blue); }
+
+    /* URGENCY REPEAT (in CTA section) */
+    .cta-urgency {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(22,72,200,0.12); border: 1px solid rgba(22,72,200,0.3);
+      border-radius: 8px; padding: 10px 20px; margin-bottom: 28px;
+      font-size: 0.82rem; font-weight: 600; color: var(--blue-accent);
+      letter-spacing: 0.03em;
+    }
+    .cta-urgency-dot { width: 6px; height: 6px; background: #ff6b35; border-radius: 50%; animation: blink 1.2s infinite; flex-shrink: 0; }
+
+    /* PHONE CTA */
+    .cta-phone-row {
+      display: flex; align-items: center; justify-content: center; gap: 12px;
+      margin-top: 16px;
+    }
+    .btn-cta-call {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,0.7); font-size: 0.9rem;
+      border: 1px solid rgba(255,255,255,0.2); border-radius: 50px;
+      padding: 10px 22px; text-decoration: none;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .btn-cta-call:hover { color: #fff; border-color: rgba(255,255,255,0.55); background: rgba(255,255,255,0.06); }
 
     /* ── HERO ── */
     .hero {
@@ -387,6 +464,66 @@
     }
     .profile-link:hover { text-decoration: underline; }
 
+    /* ── PROOF OF WORK ── */
+    .proof-card {
+      background: var(--blue-deep); border-radius: 20px;
+      padding: 44px 48px; max-width: 860px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.28);
+    }
+    .proof-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(22,72,200,0.18); border: 1px solid rgba(22,72,200,0.35);
+      border-radius: 50px; padding: 5px 14px; margin-bottom: 32px;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue-accent);
+    }
+    .proof-badge-dot { width: 5px; height: 5px; background: #0cb87a; border-radius: 50%; animation: blink 1.5s infinite; }
+    .proof-players { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 28px; }
+    .audio-player-wrap {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px; padding: 20px 22px;
+    }
+    .audio-label {
+      font-family: 'Fraunces', serif; font-size: 0.85rem; font-weight: 700;
+      color: #fff; margin-bottom: 4px;
+    }
+    .audio-sublabel { font-size: 0.72rem; color: rgba(255,255,255,0.35); margin-bottom: 14px; line-height: 1.4; }
+    .audio-player-wrap audio {
+      width: 100%; height: 36px;
+      accent-color: var(--blue-accent);
+      border-radius: 8px;
+    }
+    .proof-note { font-size: 0.84rem; color: rgba(255,255,255,0.38); line-height: 1.65; margin-bottom: 20px; }
+    .proof-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.83rem; color: var(--blue-accent); font-weight: 600; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .proof-link:hover { opacity: 0.7; }
+    @media (max-width: 900px) { .proof-players { grid-template-columns: 1fr; } .proof-card { padding: 28px 24px; } }
+
+    /* ── PHASE 2 ── */
+    .phase2-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+    .phase2-card {
+      padding: 28px 26px; background: var(--white); border: 1px solid var(--border);
+      border-radius: 14px; position: relative; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .section-cool .phase2-card { background: rgba(255,255,255,0.75); }
+    .phase2-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+    .phase2-badge {
+      position: absolute; top: 14px; right: 14px;
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      background: var(--blue-soft); border: 1px solid rgba(22,72,200,0.2);
+      color: var(--blue); border-radius: 20px; padding: 3px 9px;
+    }
+    .phase2-icon  { font-size: 1.4rem; margin-bottom: 12px; }
+    .phase2-title { font-family: 'Fraunces', serif; font-size: 1rem; font-weight: 700; color: var(--blue-deep); margin-bottom: 6px; padding-right: 48px; }
+    .phase2-body  { font-size: 0.83rem; color: var(--sub); line-height: 1.65; margin-bottom: 14px; }
+    .phase2-roi   { font-size: 0.78rem; font-weight: 700; color: var(--blue); }
+    .phase2-closing { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-style: italic; border-top: 1px solid var(--border); padding-top: 24px; }
+    @media (max-width: 900px) { .phase2-grid { grid-template-columns: 1fr; } }
+
     /* ── PRICING ── */
     .pricing-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: start; }
     .price-card { padding: 48px; border: 2px solid var(--blue-deep); border-radius: 20px; }
@@ -487,14 +624,17 @@
 
   <!-- PROGRESS DOTS -->
   <div class="progress-dots" id="pdots">
-    <div class="pd active" data-sec="hero"></div>
-    <div class="pd" data-sec="problem"></div>
-    <div class="pd" data-sec="what-changes"></div>
-    <div class="pd" data-sec="how-it-works"></div>
-    <div class="pd" data-sec="roi"></div>
-    <div class="pd" data-sec="trust"></div>
-    <div class="pd" data-sec="pricing"></div>
-    <div class="pd" data-sec="decision"></div>
+    <div class="pd active" data-sec="hero"             data-label="Overview"></div>
+    <div class="pd"        data-sec="problem"          data-label="The Problem"></div>
+    <div class="pd"        data-sec="what-changes"     data-label="What Changes"></div>
+    <div class="pd"        data-sec="how-it-works"     data-label="How It Works"></div>
+    <div class="pd"        data-sec="roi"              data-label="ROI"></div>
+    <div class="pd"        data-sec="trust"            data-label="Who Builds It"></div>
+    <div class="pd"        data-sec="proof"            data-label="Hear the Agent"></div>
+    <div class="pd"        data-sec="pricing"          data-label="Investment"></div>
+    <div class="pd"        data-sec="faq"              data-label="FAQ"></div>
+    <div class="pd"        data-sec="what-comes-next"  data-label="Phase 2"></div>
+    <div class="pd"        data-sec="decision"         data-label="Accept"></div>
   </div>
 
   <!-- NAV -->
@@ -504,7 +644,7 @@
       <div class="nav-divider"></div>
       <div class="nav-brand">A Proposal by <span>AP Systems</span></div>
     </div>
-    <a href="AP_Systems_Proposal_RightAway_Insurance.pdf" target="_blank" class="nav-cta">View Full Proposal →</a>
+    <a href="mailto:adiorahonuora@gmail.com?subject=RightAway%20Insurance%20%E2%80%93%20Proposal%20Accepted&body=Hi%20Onuora%2C%0A%0AWe%E2%80%99ve%20reviewed%20your%20proposal%20and%20would%20like%20to%20move%20forward.%20Please%20send%20over%20the%20agreement%20and%20deposit%20details.%0A%0A%E2%80%93%20Jahan%20%26%20John" class="nav-cta">✉ Accept This Proposal</a>
   </nav>
 
   <!-- ── HERO ── -->
@@ -522,7 +662,7 @@
           </h1>
           <p class="hero-sub sr d2">Your team is talented and hardworking. This system is designed to take the tedious, repetitive work off your plate entirely so you can focus on what you do best — serving your clients and growing your business.</p>
           <div class="hero-cta-row sr d3">
-            <a href="AP_Systems_Proposal_RightAway_Insurance.pdf" target="_blank" class="btn-hero">Accept This Proposal →</a>
+            <a href="mailto:adiorahonuora@gmail.com?subject=RightAway%20Insurance%20%E2%80%93%20Proposal%20Accepted&body=Hi%20Onuora%2C%0A%0AWe%E2%80%99ve%20reviewed%20your%20proposal%20and%20would%20like%20to%20move%20forward.%20Please%20send%20over%20the%20agreement%20and%20deposit%20details.%0A%0A%E2%80%93%20Jahan%20%26%20John" class="btn-hero">✉ Accept This Proposal</a>
             <a href="#problem" class="btn-down">See the full picture ↓</a>
           </div>
           <div class="hero-trio sr d4">
@@ -599,6 +739,13 @@
         <div class="cost-pill-text">
           <strong>spent on data entry alone every year</strong>
           At your current lead volume. Before counting the revenue lost to slow follow up.
+        </div>
+      </div>
+
+      <div class="bridge-callout sr d6">
+        <div class="bridge-arrow">→</div>
+        <div class="bridge-text">
+          This system costs <strong>$3,000 — once</strong>. You are currently spending <strong>$6,250 every year</strong> on the work it replaces. It pays for itself in under six months, then saves you money every year after that, forever.
         </div>
       </div>
     </div>
@@ -752,8 +899,8 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>10 leads</td>
+          <tr style="background:rgba(22,72,200,0.06);">
+            <td>10 leads <span style="font-size:0.68rem;color:var(--blue-accent);margin-left:6px;font-weight:600;">← you are here</span></td>
             <td>0.8 hrs</td>
             <td>$5,000</td>
             <td>$10,950</td>
@@ -793,6 +940,13 @@
       <h2 class="sec-h sr d1">Someone who genuinely understands insurance operations and technology equally well.</h2>
       <p class="sec-sub sr d2">This is not a generic freelancer applying templates. This is a security engineer who specialises in insurance automation and knows Agency Zoom, QQ Catalyst, and how lead flows actually work in the real world.</p>
 
+      <div class="bridge-callout sr d2" style="margin-bottom:48px;margin-top:0;">
+        <div class="bridge-arrow">💬</div>
+        <div class="bridge-text">
+          A similar pipeline was built for an independent insurance agency handling 15 leads per day. They went from 45 minutes of daily manual entry to <strong>zero</strong>. Their team now calls leads within 4 minutes of submission.
+        </div>
+      </div>
+
       <div class="cred-grid">
         <div class="cred-card sr d1">
           <div class="cred-icon">🔒</div>
@@ -826,10 +980,16 @@
             <span class="chip">📊 QQ Catalyst</span>
             <span class="chip">🔗 API Integration</span>
           </div>
-          <a href="https://www.linkedin.com/in/adiorahonuora-security-eng/" target="_blank" class="profile-link">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077b5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            View My Full LinkedIn Profile →
-          </a>
+          <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+            <a href="https://www.linkedin.com/in/adiorahonuora-security-eng/" target="_blank" class="profile-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077b5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              LinkedIn Profile →
+            </a>
+            <a href="https://apsystems.netlify.app/" target="_blank" rel="noopener" class="profile-link" style="color:var(--blue);">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              apsystems.netlify.app →
+            </a>
+          </div>
           <br/>
           <a href="https://calendly.com/adiorahonuora/new-meeting" target="_blank" rel="noopener" class="btn-calendly">
             📅 Book a Free Discovery Call
@@ -839,11 +999,47 @@
     </div>
   </section>
 
-  <!-- ── PRICING ── -->
-  <section class="section section-white" id="pricing">
+  <!-- ── PROOF OF WORK ── -->
+  <section class="section section-white" id="proof">
     <div class="sec-num">06</div>
     <div class="wrap">
-      <span class="sec-label sr">06 — The Investment</span>
+      <span class="sec-label sr">06 — Proof of Work</span>
+      <h2 class="sec-h sr d1">This is what your leads will experience. Every time. Automatically.</h2>
+      <p class="sec-sub sr d2">Below is a real recording of an AI policy review agent we built and deployed for a live client. The same infrastructure powers everything we are proposing for RightAway Insurance.</p>
+
+      <div class="proof-card sr d3">
+        <div class="proof-badge"><span class="proof-badge-dot"></span> Live Agent Recording — Policy Review Booking</div>
+
+        <div class="proof-players">
+          <div class="audio-player-wrap">
+            <div class="audio-label">West African Accent</div>
+            <div class="audio-sublabel">Audience-matched for a client base similar to yours</div>
+            <audio controls preload="none">
+              <source src="https://apsystems.netlify.app/voice1.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+          <div class="audio-player-wrap">
+            <div class="audio-label">American Accent</div>
+            <div class="audio-sublabel">Standard delivery — clear, professional, trust-building</div>
+            <audio controls preload="none">
+              <source src="https://apsystems.netlify.app/voice2.mp3" type="audio/mpeg">
+            </audio>
+          </div>
+        </div>
+
+        <p class="proof-note">These are actual recordings from a live deployment. The agent handles policy review conversations, qualifies the client, and books the follow-up appointment — entirely automatically, without a human involved at any point.</p>
+        <a href="https://apsystems.netlify.app/" target="_blank" rel="noopener" class="proof-link">
+          Hear more examples on our website →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PRICING ── -->
+  <section class="section section-white" id="pricing">
+    <div class="sec-num">07</div>
+    <div class="wrap">
+      <span class="sec-label sr">07 — The Investment</span>
       <h2 class="sec-h sr d1">One clear price. No surprises. No ongoing fees. Completely yours.</h2>
       <p class="sec-sub sr d2">You own the system outright from the moment it goes live. There are no monthly subscriptions, no retainer fees, and no dependency on an agency to keep it running.</p>
 
@@ -885,20 +1081,134 @@
     </div>
   </section>
 
+  <!-- ── FAQ ── -->
+  <section class="section section-off" id="faq">
+    <div class="sec-num">08</div>
+    <div class="wrap">
+      <span class="sec-label sr">08 — Common Questions</span>
+      <h2 class="sec-h sr d1">A few things worth knowing before you say yes.</h2>
+      <p class="sec-sub sr d2">Every question you might have is answered here. If something is still unclear, one call solves it.</p>
+
+      <div class="faq-list">
+        <div class="faq-item sr d1">
+          <button class="faq-q">
+            Will this break anything in how we currently use Agency Zoom or QQ Catalyst?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Not at all. The system writes to your CRMs via their official APIs, exactly the way a human would enter a record — just instantly and without errors. Your existing data, configurations, and workflows stay completely untouched. Nothing is removed or changed. Only new leads are added.</div>
+        </div>
+        <div class="faq-item sr d2">
+          <button class="faq-q">
+            Who hosts the automation? What do we need to run it?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">The system runs on a cloud server. You do not need to install anything, maintain any software, or manage any infrastructure. Once it is live, it simply runs. If it ever needs updates or your forms change, that is covered in the 30-day post-launch support window — and easy to handle after that.</div>
+        </div>
+        <div class="faq-item sr d3">
+          <button class="faq-q">
+            What happens after the 30 days of support ends?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">You own the system outright. Full documentation is provided so any technically-minded person can maintain it. If you ever want changes — new fields, new CRMs, new logic — that can be quoted as a small separate project. Many clients go 12 to 18 months without needing anything changed at all.</div>
+        </div>
+        <div class="faq-item sr d4">
+          <button class="faq-q">
+            How confident are you in the 4-week delivery timeline?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Confident enough to back it with a financial guarantee. If the system is not fully live within 4 weeks of your discovery call, you do not pay the final $1,500. That is in the agreement. In practice, builds like this typically complete in 2 to 3 weeks once the discovery call is done and access is provided.</div>
+        </div>
+        <div class="faq-item sr d5">
+          <button class="faq-q">
+            Is our lead data and client information safe passing through this system?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-a">Yes. This was built by a security engineer, so data protection is not an afterthought — it is the foundation. All data is transmitted over encrypted connections, nothing is stored unnecessarily, and the system is designed to comply with how sensitive insurance client information should be handled.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PHASE 2 ── -->
+  <section class="section section-cool" id="what-comes-next">
+    <div class="sec-num">09</div>
+    <div class="wrap">
+      <span class="sec-label sr">09 — What Comes Next</span>
+      <h2 class="sec-h sr d1">Phase 1 solves the immediate problem. Here is what the system can grow into.</h2>
+      <p class="sec-sub sr d2">None of these are included in the current proposal. They are simply what becomes possible once the foundation is live and working for you.</p>
+
+      <div class="phase2-grid">
+        <div class="phase2-card sr d1">
+          <span class="phase2-badge">Phase 2</span>
+          <div class="phase2-icon">🔄</div>
+          <div class="phase2-title">Policy Renewal Intelligence</div>
+          <div class="phase2-body">Monitors every expiration date and sends personalised outreach at 90, 60, 30, and 7 days before renewal. Auto-generates pre-filled renewal proposals from existing client records. Flags at-risk accounts for manual escalation.</div>
+          <div class="phase2-roi">→ $40k–$80k in protected annual premium</div>
+        </div>
+        <div class="phase2-card sr d2">
+          <span class="phase2-badge">Phase 2</span>
+          <div class="phase2-icon">💰</div>
+          <div class="phase2-title">Commission Reconciliation Engine</div>
+          <div class="phase2-body">Connects to carrier portals monthly, parses commission statements, and cross-references against expected payouts. Flags every discrepancy and generates a clean reconciliation report — no spreadsheets involved.</div>
+          <div class="phase2-roi">→ $15k–$40k recovered per year (already earned, never collected)</div>
+        </div>
+        <div class="phase2-card sr d3">
+          <span class="phase2-badge">Phase 2</span>
+          <div class="phase2-icon">⚡</div>
+          <div class="phase2-title">Live Multi-Carrier Quote Automation</div>
+          <div class="phase2-body">When a lead arrives, simultaneously pulls live quotes from all connected carriers and delivers a formatted comparison to your agent within 60 seconds — before they even dial.</div>
+          <div class="phase2-roi">→ 3–4 hours of senior agent time recovered daily</div>
+        </div>
+        <div class="phase2-card sr d4">
+          <span class="phase2-badge">Phase 2</span>
+          <div class="phase2-icon">📞</div>
+          <div class="phase2-title">Dormant Lead Recovery System</div>
+          <div class="phase2-body">Tracks every unanswered contact attempt. Switches channels automatically, adjusts timing by time zone, and re-activates dormant leads at 30, 60, and 90 day intervals with fresh messaging.</div>
+          <div class="phase2-roi">→ 3–6 additional closes per month from leads you already paid for</div>
+        </div>
+        <div class="phase2-card sr d5">
+          <span class="phase2-badge">Phase 2</span>
+          <div class="phase2-icon">🏠</div>
+          <div class="phase2-title">Life Event Cross-Sell Triggers</div>
+          <div class="phase2-body">Detects signals like a new address, a family note, or a policy change — then automatically creates a personalised warm outreach task for the right agent at exactly the right moment.</div>
+          <div class="phase2-roi">→ 60–70% close rate on existing clients vs 5–20% cold</div>
+        </div>
+        <div class="phase2-card sr d6">
+          <span class="phase2-badge">Phase 2</span>
+          <div class="phase2-icon">🤝</div>
+          <div class="phase2-title">Referral Capture Automation</div>
+          <div class="phase2-body">30 days after a policy goes live, sends a personalised referral ask automatically. Tracks every referral source, follows up if there is no response, and logs attribution in the CRM.</div>
+          <div class="phase2-roi">→ Referred leads close at 3–4× the rate of cold prospects</div>
+        </div>
+      </div>
+
+      <p class="phase2-closing sr">Each of these is a separate project with its own scope, timeline, and price. The system we are building now is the foundation they all run on. Most clients come back for one within six months of go-live.</p>
+    </div>
+  </section>
+
   <!-- ── CTA ── -->
   <section class="section section-dark" id="decision">
-    <div class="sec-num">07</div>
+    <div class="sec-num">10</div>
     <div class="wrap">
       <div class="cta-inner">
-        <div class="cta-eyebrow sr">07 — Your Next Step</div>
+        <div class="cta-eyebrow sr">10 — Your Next Step</div>
         <h2 class="cta-h sr d1">
           You've seen enough to know
           <em>this makes sense.</em>
         </h2>
         <p class="cta-p sr d2">Reply to confirm. Sign a one-page agreement. Send the deposit. Build starts within a week. Your team stops doing data entry forever.</p>
+
+        <div class="cta-urgency sr d2">
+          <span class="cta-urgency-dot"></span>
+          April 7 build slot available — confirm by April 4 to secure it
+        </div>
+
         <div class="cta-btns sr d3">
-          <a href="AP_Systems_Proposal_RightAway_Insurance.pdf" target="_blank" class="btn-cta">Accept This Proposal →</a>
-          <a href="tel:+18622559789" class="btn-cta-phone">Or call (862) 255-9789</a>
+          <a href="mailto:adiorahonuora@gmail.com?subject=RightAway%20Insurance%20%E2%80%93%20Proposal%20Accepted&body=Hi%20Onuora%2C%0A%0AWe%E2%80%99ve%20reviewed%20your%20proposal%20and%20would%20like%20to%20move%20forward.%20Please%20send%20over%20the%20agreement%20and%20deposit%20details.%0A%0A%E2%80%93%20Jahan%20%26%20John" class="btn-cta">✉ Accept This Proposal</a>
+        </div>
+        <div class="cta-phone-row sr d3">
+          <a href="tel:+18622559789" class="btn-cta-call">📞 (862) 255-9789</a>
+          <span style="color:rgba(255,255,255,0.2);font-size:0.8rem;">or call to confirm</span>
         </div>
         <div class="cta-steps sr d4">
           <div class="cta-step">
@@ -953,6 +1263,7 @@
           <a href="mailto:adiorahonuora@gmail.com" class="foot-link">adiorahonuora@gmail.com</a>
           <a href="tel:+18622559789" class="foot-link">(862) 255-9789</a>
           <a href="https://www.linkedin.com/in/adiorahonuora-security-eng/" target="_blank" class="foot-link">LinkedIn</a>
+          <a href="https://apsystems.netlify.app/" target="_blank" rel="noopener" class="foot-link">apsystems.netlify.app</a>
         </div>
         <div class="foot-meta">Prepared for RightAway Insurance · March 2026 · Valid for 30 days</div>
       </div>
@@ -990,7 +1301,7 @@
     document.querySelectorAll('[data-target]').forEach(el => cObs.observe(el));
 
     // Progress dots
-    const sections = ['hero','problem','what-changes','how-it-works','roi','trust','pricing','decision'];
+    const sections = ['hero','problem','what-changes','how-it-works','roi','trust','proof','pricing','faq','what-comes-next','decision'];
     const dots = document.querySelectorAll('.pd');
     const dObs = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -1005,6 +1316,16 @@
       const el = document.getElementById(sections[i]);
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
   </script>
 </body>
 </html>
