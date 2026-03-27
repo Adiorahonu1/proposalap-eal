@@ -387,56 +387,6 @@
     }
     .profile-link:hover { text-decoration: underline; }
 
-    /* ── PROOF OF CALL AUDIO ── */
-    .poc-wrap {
-      margin: 0 0 48px;
-    }
-    .poc-label {
-      display: inline-flex; align-items: center; gap: 8px;
-      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--blue);
-      background: var(--blue-soft); border: 1px solid rgba(22,72,200,0.18);
-      border-radius: 20px; padding: 5px 14px; margin-bottom: 20px;
-    }
-    .poc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    @media (max-width: 680px) { .poc-grid { grid-template-columns: 1fr; } }
-    .poc-card {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 16px; padding: 24px 26px;
-      box-shadow: 0 4px 24px rgba(22,72,200,0.06);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .poc-card:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(22,72,200,0.11); }
-    .poc-meta { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-    .poc-badge {
-      width: 38px; height: 38px; border-radius: 50%; flex-shrink: 0;
-      background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 14px var(--blue-glow);
-    }
-    .poc-badge svg { width: 16px; height: 16px; fill: #fff; }
-    .poc-info { flex: 1; }
-    .poc-title { font-family: 'Fraunces', serif; font-size: 0.92rem; font-weight: 700; color: var(--blue-deep); }
-    .poc-sub   { font-size: 0.74rem; color: var(--muted); margin-top: 1px; }
-    .poc-player {
-      width: 100%; height: 36px;
-      accent-color: var(--blue);
-      border-radius: 8px;
-      outline: none;
-    }
-    audio.poc-player::-webkit-media-controls-panel {
-      background: var(--blue-light);
-      border-radius: 8px;
-    }
-    .poc-desc {
-      font-size: 0.86rem; color: var(--sub); line-height: 1.7;
-      margin-bottom: 20px; max-width: 620px;
-    }
-    .poc-badge--play {
-      background: linear-gradient(135deg, var(--green) 0%, #08a06b 100%) !important;
-      box-shadow: 0 4px 14px rgba(12,184,122,0.35) !important;
-    }
-
     /* ── PRICING ── */
     .pricing-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 28px; align-items: start; }
     .price-card { padding: 48px; border: 2px solid var(--blue-deep); border-radius: 20px; }
@@ -860,46 +810,6 @@
           <div class="cred-body">Deep familiarity with Agency Zoom, QQ Catalyst, and the compliance considerations that matter in insurance. No learning curve. Direct, confident execution.</div>
         </div>
       </div>
-
-      <!-- ── PROOF OF CALL ── -->
-      <div class="poc-wrap sr d3">
-        <div class="poc-label">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 100 18A9 9 0 0012 3zm-1 13V8l6 4-6 4z"/></svg>
-          Hear It In Action — Real AI Calls From a Former Client
-        </div>
-        <p class="poc-desc">These are actual recordings of the AI system working for Life Changers, a former client. This is not a demo. This is what the system sounds like running live.</p>
-        <div class="poc-grid">
-          <div class="poc-card sr d4">
-            <div class="poc-meta">
-              <div class="poc-badge poc-badge--play">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <div class="poc-info">
-                <div class="poc-title">AI in Action — Recording 1</div>
-                <div class="poc-sub">Life Changers · Live AI System Call</div>
-              </div>
-            </div>
-            <audio class="poc-player" controls preload="metadata">
-              <source src="Audio%20for%20conversation%20conv_4001kjbmbkb4fv4876qpn7grke25.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-          <div class="poc-card sr d5">
-            <div class="poc-meta">
-              <div class="poc-badge poc-badge--play">
-                <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-              </div>
-              <div class="poc-info">
-                <div class="poc-title">AI in Action — Recording 2</div>
-                <div class="poc-sub">Life Changers · Live AI System Call</div>
-              </div>
-            </div>
-            <audio class="poc-player" controls preload="metadata">
-              <source src="Audio%20for%20conversation%20conv_7601kje0f7e0e0gvj8frk6xkh01n.mp3" type="audio/mpeg">
-            </audio>
-          </div>
-        </div>
-      </div>
-      <!-- ── END PROOF OF CALL ── -->
 
       <div class="profile-card sr d4">
         <div class="profile-photo">
